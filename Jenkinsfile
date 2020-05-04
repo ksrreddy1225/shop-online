@@ -5,9 +5,8 @@ pipeline{
 	}
   stages{
     stage ('Package'){
-      steps {
-        sh "cd shopfront"	  
-        sh 'mvn -Dmaven.test.failure.ignore=true clean install' 
+      steps { 
+        sh 'pushd shopfront/; mvn -Dmaven.test.failure.ignore=true clean install; popd' 
             }
         }
     }
